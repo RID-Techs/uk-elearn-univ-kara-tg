@@ -22,8 +22,8 @@ export default defineConfig({
 
       manifest: {
         name: "E-learning Université de Kara",
-        short_name: "UK E-Learn",
-        description: "E-learning platform...",
+        short_name: "UK-Elearn",
+        description: "UK-Elearn is a web-based learning platform dedicated to providing high-quality education online to students of 'Université de Kara",
         start_url: "/?source=pwa",
         display: "standalone",
         background_color: "#f7fffe",

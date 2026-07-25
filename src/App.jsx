@@ -5,7 +5,7 @@ import { Error } from "./Errors/Error";
 import { ErrorPage } from "./Errors/ErrorPage";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { PwaUpdater } from "./Components/PwaUpdater";
 
 function RootLayout() {
@@ -19,6 +19,32 @@ function RootLayout() {
   );
 }
 function App() {
+  useEffect(() => {
+    const getLogin = localStorage.getItem("isLoggedIn");
+    if(!getLogin) return;
+    const getLoginState = getLogin === "true";
+    const resetPWA = async () => {
+  // Delete Cache Storage
+  const cacheNames = await caches.keys();
+  await Promise.all(
+    cacheNames.map((name) => caches.delete(name))
+  );
+
+  // Unregister service workers
+  const registrations =
+    await navigator.serviceWorker.getRegistrations();
+
+  await Promise.all(
+    registrations.map((registration) =>
+      registration.unregister()
+    )
+  );
+  localStorage.clear();
+  // Reload the application
+  window.location.reload();
+};
+if(getLoginState) resetPWA();
+  }, [])
   const router = createBrowserRouter([
     {
       path: "/",
@@ -33,7 +59,7 @@ function App() {
           },
         },
         {
-          path: "/sigup-adins",
+          path: "/up-sign-add",
           lazy: async () => {
             const { SignUp } = await import("./Components/SignUp");
             return { Component: SignUp };

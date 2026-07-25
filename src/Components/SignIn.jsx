@@ -1,24 +1,16 @@
 import supabase from "../Config/DbConnect"
 // Image logo, stars, star, username, password is from https://icons8.com/
 import logo from "../assets/learns.png";
-import eye from "../assets/eye.svg";
-import eyeBlocked from "../assets/eye-blocked.svg";
 import stars from "../assets/stars.png";
 import star from "../assets/stars_2.png";
 import username from "../assets/username.png";
-import password from "../assets/password.png";
 import E_member from "../assets/E_picture.webp";
 import { toast, Zoom } from "react-toastify";
 import { useState, useEffect} from "react";
 
 export function SignIn() {
   const [loading, setLoading] = useState("Sign in");
-
-  const [showPass, setShowPass] = useState(false);
-  const handleShowPass = () => {
-    setShowPass(!showPass);
-  }
-
+  const [identifiant, setIdentifiant] = useState('');
   const [dateOfCreation, setDateOfCreation] = useState("2024");
 
   useEffect(() => {
@@ -37,7 +29,7 @@ export function SignIn() {
   }, []);
 
   const FillInputs = () => {
-    toast.warn("Please, All fields are required !", {
+    toast.warn("Please enter your identifier.", {
       theme: "light",
       position: "top-center",
       autoClose: 2000,
@@ -61,12 +53,10 @@ export function SignIn() {
     });
   };
 
-  const handleSignUp = async (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
-    const username = document.querySelector("#username");
-    const password = document.querySelector("#password");
-
-    if(username.value.trim() === "" || password.value.trim() === "") {
+    const cleanIdentifiant = identifiant.trim();
+    if (!cleanIdentifiant) {
       FillInputs();
       setLoading("Sign in");
         return
@@ -74,31 +64,77 @@ export function SignIn() {
 
     setLoading("Processing...");
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: username.value.trim(),
-        password: password.value.trim(),
-    })
+    try {
+        // 1. Fetch the student from the Supabase database
+        const { data: student, error: fetchError } = await supabase
+          .from('students')
+          .select('id, identifiant, uniqueCopyKey, Name, Firstname')
+          .eq('identifiant', cleanIdentifiant)
+          .single();
 
-    if (error) {
-        FailedToSignIn(error.message);
-        setLoading("Sign in");
-        return
-    }
+        if (fetchError || !student) {
+          FailedToSignIn("Identifier not found. Please verify its accuracy.");
+          setLoading("Sign in");
+          return;
+        }
 
-    if(data){
-        localStorage.setItem("isLoggedIn", "true");
-        setLoading("Sign in");
-        Welcome("You are an E-member now !");
-        setTimeout(() => {
-          window.location.replace("/");
-        }, 2000);
+        // 2. Check the key in the student's browser localStorage
+        const localDeviceKey = localStorage.getItem('deviceKey');
+
+        // SCENARIO A: FIRST LOGIN (The DB field is null)
+        if (!student.uniqueCopyKey) {
+          // Generation of a unique UUID for this device
+          const newDeviceKey = crypto.randomUUID();
+
+          // Update Supabase DB
+          const { error: updateError } = await supabase
+            .from('students')
+            .update({ uniqueCopyKey: newDeviceKey })
+            .eq('id', student.id);
+
+          if (updateError) {
+            FailedToSignIn("Error during device activation. Please try again.");
+            setLoading("Sign in");
+            return;
+          }
+
+          // Local storage
+          localStorage.setItem('deviceKey', newDeviceKey);
+          
+          // Activation success
+         completeLogin(student.identifiant, student.Name, student.Firstname);
+          return;
+        }
+
+        // SCENARIO B: DEVICE ALREADY REGISTERED (The DB field is not null)
+        if (student.uniqueCopyKey) {
+          // Compare the DB key with the local key
+          if (student.uniqueCopyKey === localDeviceKey) {
+             // Perfect match: It is the correct device
+             completeLogin(student.identifiant, student.Name, student.Firstname);
+          } else {
+             // Mismatch: Attempt to login from another device!
+             FailedToSignIn("Access denied: This account is already bound to another device (phone or computer).");
+          }
+        }
+    } catch (error) {
+      console.error("Unexpected error:", error);
+        FailedToSignIn("A network error occurred. Please check your connection.");
     }
 }
 
-useEffect(() =>  {
-  localStorage.clear();
-}, []);
-
+  const completeLogin = (userId, userName, userFirstname) => {
+    // This function handles the final authentication state
+    setLoading("Sign in");
+    localStorage.setItem("isLoggedIn", "true");
+    Welcome("You are an E-member now !");
+    localStorage.setItem('currentUser', userId);
+    localStorage.setItem('userName', userName);
+    localStorage.setItem('userFirstname', userFirstname);
+    setTimeout(() => {
+          window.location.replace("/");
+        }, 2000);
+  };
 
   return (
     <>
@@ -106,8 +142,8 @@ useEffect(() =>  {
       <div className="container-fluid header-wraper-home">
         <div className="header-holder">
           <header>
-            <img height={50} src={logo} alt="E-learning" />
-            <h1>E-learning</h1>
+            <img height={50} src={logo} alt="UK-Elearn" />
+            <h1>UK-Elearn</h1>
           </header>
         </div>
 
@@ -120,7 +156,7 @@ useEffect(() =>  {
 
       <div className="sign-up-and-in-holder">
         <h3 className="ms-4">
-          Sign in to get access to the E-learning learning space{" "}
+          Sign in to access your learning space{" "}
           <img height={32} src={star} alt="star" />{" "}
         </h3>
       </div>
@@ -138,28 +174,12 @@ useEffect(() =>  {
                   src={username}
                   alt="username"
                 />{" "}
-                Username :
+                Identifier :
               </label>
-              <input type="text" id="username" placeholder="Username" />
-            </div>
-            <div className="input-holder mt-3">
-              <label htmlFor="password">
-                {" "}
-                <img height={36} src={password} alt="password" /> Password :
-              </label>
-              <div className="password-wrapper">
-                <input type={showPass ? "text" : "password"} id="password" placeholder="Password" />
-                {
-                  showPass ? (
-                    <img height={32} onClick={handleShowPass} src={eyeBlocked} alt="show" />
-                  ) : (
-                    <img height={32} onClick={handleShowPass} src={eye} alt="hide" />
-                  )
-                }
-              </div>
+              <input type="text" value={identifiant} onChange={(e) => setIdentifiant(e.target.value)} id="username" placeholder="Enter Your PassKey" />
             </div>
             <div className="">
-              <button onClick={handleSignUp} id="login-button" type="button">
+              <button onClick={handleSignIn} id="login-button" type="button">
                 {loading}
               </button>
             </div>
@@ -177,8 +197,8 @@ useEffect(() =>  {
       
                 <div className="header-holder">
                   <div className="header-footer">
-                    <img height={32} src={logo} alt="E-learning" />
-                    <h3>E-learning</h3>
+                    <img height={32} src={logo} alt="UK-Elearn" />
+                    <h3>UK-Elearn</h3>
                   </div>
                 </div>
       
@@ -191,7 +211,7 @@ useEffect(() =>  {
                   </div>
       
                   <div className="author">
-                    <p>Made with <span style={{ color: "red" }}>&hearts;</span> by E-learning</p>
+                    <p>Made with <span style={{ color: "red" }}>&hearts;</span> by UK-Elearn</p>
                   </div>
                 </div>
       
@@ -212,7 +232,7 @@ useEffect(() =>  {
                       >
                         <path d="M27.281 4.65c-2.994-3-6.975-4.65-11.219-4.65-8.738 0-15.85 7.112-15.85 15.856 0 2.794 0.731 5.525 2.119 7.925l-2.25 8.219 8.406-2.206c2.319 1.262 4.925 1.931 7.575 1.931h0.006c0 0 0 0 0 0 8.738 0 15.856-7.113 15.856-15.856 0-4.238-1.65-8.219-4.644-11.219zM16.069 29.050v0c-2.369 0-4.688-0.637-6.713-1.837l-0.481-0.288-4.987 1.306 1.331-4.863-0.313-0.5c-1.325-2.094-2.019-4.519-2.019-7.012 0-7.269 5.912-13.181 13.188-13.181 3.519 0 6.831 1.375 9.319 3.862 2.488 2.494 3.856 5.8 3.856 9.325-0.006 7.275-5.919 13.188-13.181 13.188zM23.294 19.175c-0.394-0.2-2.344-1.156-2.706-1.288s-0.625-0.2-0.894 0.2c-0.262 0.394-1.025 1.288-1.256 1.556-0.231 0.262-0.462 0.3-0.856 0.1s-1.675-0.619-3.188-1.969c-1.175-1.050-1.975-2.35-2.206-2.744s-0.025-0.613 0.175-0.806c0.181-0.175 0.394-0.463 0.594-0.694s0.262-0.394 0.394-0.662c0.131-0.262 0.069-0.494-0.031-0.694s-0.894-2.15-1.219-2.944c-0.319-0.775-0.65-0.669-0.894-0.681-0.231-0.012-0.494-0.012-0.756-0.012s-0.694 0.1-1.056 0.494c-0.363 0.394-1.387 1.356-1.387 3.306s1.419 3.831 1.619 4.1c0.2 0.262 2.794 4.269 6.769 5.981 0.944 0.406 1.681 0.65 2.256 0.837 0.95 0.3 1.813 0.256 2.494 0.156 0.762-0.113 2.344-0.956 2.675-1.881s0.331-1.719 0.231-1.881c-0.094-0.175-0.356-0.275-0.756-0.475z"></path>
                       </svg>{" "}
-                      E-learning Crew
+                      UK-Elearn Crew
                     </a>
                   </div>
       

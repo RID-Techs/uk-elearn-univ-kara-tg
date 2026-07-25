@@ -33,10 +33,6 @@ export function Welcome_Page() {
     })
 }
 
-  const [newUser, setNewUser] = useState("");
-  const [UserAlredyLoggedIn, setUserAlredyLoggedIn] = useState(true);
-  const User = localStorage.getItem("User");
-
   useEffect(() => {
     const getNote = localStorage.getItem("Show Note");
     const HasReadNotes = localStorage.getItem("HasReadNote");
@@ -131,28 +127,10 @@ export function Welcome_Page() {
     setHasReadNote(true);
     localStorage.setItem("HasReadNote", "true");
   };
-
+const userFirstname = localStorage.getItem('userFirstname') || "Guest Learner";
   const EnterMySession = () => { 
-    if(User) {
-      Welcome(`Hi ${User}`)
+      Welcome(`Hi! ${userFirstname}`)
       navigate("/Home")
-    } else {
-      setUserAlredyLoggedIn(false);
-      document.body.classList.add("no-scroll")
-    }
-}
-
-const SignInNewUser = (e) => {
-  const NewUser = e.target.value;
-  setNewUser(NewUser)
-}
-
-const LoginByName = () => {
-  localStorage.setItem("User", newUser)
-  setUserAlredyLoggedIn(true)
-  document.body.classList.remove("no-scroll")
-  Welcome(`Welcome ${newUser}`)
-  navigate("/Home")
 }
 const [eco, setEco] = useState(() => {
   const ecoValue = localStorage.getItem("eco");
@@ -264,7 +242,7 @@ const ClosingEcoBanner = () => {
                         Welcome to the{" "}
                         <span id="site-name">
                             <strong>
-                            <em>E-learning website</em>
+                            <em>UK-Elearn website</em>
                             </strong>
                         </span>
                         . Our platform is a learning space for Anglophone Studies students, providing the resources needed to better understand lecturers’ courses, engage more actively in class, and effectively transmit the knowledge acquired.
@@ -316,7 +294,7 @@ const ClosingEcoBanner = () => {
                         <p>
                             Join our special WhatsApp group,{" "}
                             <strong>
-                            {"'"}E-learning Crew,{"'"}
+                            {"'"}UK-Elearn Crew,{"'"}
                             </strong>{" "}
                             for more tips on the English language and essential
                             resources to help you dive deeper into the world of
@@ -326,7 +304,7 @@ const ClosingEcoBanner = () => {
                             id="e-crew-icon"
                             height={100}
                             src={E_crew}
-                            alt="E-learning Crew"
+                            alt="UK-Elearn Crew"
                         />
                         <a
                             href="https://chat.whatsapp.com/KEHsubuy8gKBogstCaBPzq"
@@ -344,7 +322,7 @@ const ClosingEcoBanner = () => {
                             >
                             <path d="M27.281 4.65c-2.994-3-6.975-4.65-11.219-4.65-8.738 0-15.85 7.112-15.85 15.856 0 2.794 0.731 5.525 2.119 7.925l-2.25 8.219 8.406-2.206c2.319 1.262 4.925 1.931 7.575 1.931h0.006c0 0 0 0 0 0 8.738 0 15.856-7.113 15.856-15.856 0-4.238-1.65-8.219-4.644-11.219zM16.069 29.050v0c-2.369 0-4.688-0.637-6.713-1.837l-0.481-0.288-4.987 1.306 1.331-4.863-0.313-0.5c-1.325-2.094-2.019-4.519-2.019-7.012 0-7.269 5.912-13.181 13.188-13.181 3.519 0 6.831 1.375 9.319 3.862 2.488 2.494 3.856 5.8 3.856 9.325-0.006 7.275-5.919 13.188-13.181 13.188zM23.294 19.175c-0.394-0.2-2.344-1.156-2.706-1.288s-0.625-0.2-0.894 0.2c-0.262 0.394-1.025 1.288-1.256 1.556-0.231 0.262-0.462 0.3-0.856 0.1s-1.675-0.619-3.188-1.969c-1.175-1.050-1.975-2.35-2.206-2.744s-0.025-0.613 0.175-0.806c0.181-0.175 0.394-0.463 0.594-0.694s0.262-0.394 0.394-0.662c0.131-0.262 0.069-0.494-0.031-0.694s-0.894-2.15-1.219-2.944c-0.319-0.775-0.65-0.669-0.894-0.681-0.231-0.012-0.494-0.012-0.756-0.012s-0.694 0.1-1.056 0.494c-0.363 0.394-1.387 1.356-1.387 3.306s1.419 3.831 1.619 4.1c0.2 0.262 2.794 4.269 6.769 5.981 0.944 0.406 1.681 0.65 2.256 0.837 0.95 0.3 1.813 0.256 2.494 0.156 0.762-0.113 2.344-0.956 2.675-1.881s0.331-1.719 0.231-1.881c-0.094-0.175-0.356-0.275-0.756-0.475z"></path>
                             </svg>{" "}
-                            E-learning Crew
+                            UK-Elearn Crew
                         </a>
                         </div>
                         <p id="click-here">
@@ -378,14 +356,14 @@ const ClosingEcoBanner = () => {
       <div className="container-fluid header-wraper-home">
         <div className="header-holder">
           <header>
-            <img height={50} src={logo} alt="E-learning" />
-            <h1>E-learning</h1>
+            <img height={50} src={logo} alt="UK-Elearn" />
+            <h1>UK-Elearn</h1>
           </header>
         </div>
 
         <div className="header-elements">
           <h3 id="member">
-            Welcome Dear E-learning Member <img className="member-stars" height={42} src={stars} alt="stars" />{" "}
+            Hi there! 👋 <img className="member-stars" height={42} src={stars} alt="stars" />{" "}
           </h3>
 
           {showBanner && (
@@ -438,7 +416,7 @@ const ClosingEcoBanner = () => {
 >
   <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
   <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" />
-</svg> E-learning Member {isMember && <img height={32} src={reward} alt="reward" />} </button> : 
+</svg> Verified Member {isMember && <img height={32} src={reward} alt="reward" />} </button> : 
 
 <button type="button" data-bs-toggle="modal" data-bs-target="#logInMember">  <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -449,7 +427,7 @@ const ClosingEcoBanner = () => {
 >
   <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
   <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" />
-</svg> E-learning Member</button>}
+</svg> Guest Learner</button>}
           </div>
         </div>
       </div>
@@ -458,11 +436,11 @@ const ClosingEcoBanner = () => {
   <div className="modal-dialog">
     <div className="modal-content">
       <div className="modal-header">
-        <h5 className="modal-title text-primary-emphasis fw-bold">E-learning Member</h5>
+        <h5 className="modal-title text-primary-emphasis fw-bold">UK-Elearn Member</h5>
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div className="modal-body">
-        <p>Sign in to access all content and new updates available exclusively to <strong>E-learning members</strong>. You can also take tests in the <strong>Test section</strong> to evaluate your learning progress and continue improving.</p>
+        <p>Want to get access ? Alright, <strong>register</strong> to enjoy all the <strong>Resources</strong>, available exclusively to <strong>UK-Elearn members</strong>, and therefore assess your learning progress and continue improving.</p>
       </div>
       <div className="modal-footer">
         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -496,7 +474,7 @@ const ClosingEcoBanner = () => {
             {" "}
             <span id="open-btn"><em>university career</em></span>
           </span>{" "}
-          with E-learning{" "}
+          with UK-Elearn{" "}
           <img height={32} src={star} alt="star" />{" "}
         </h3>
       </div>
@@ -608,28 +586,14 @@ id="wave-footer-svg-2"
   </div>
 </section>
 
-
-{!UserAlredyLoggedIn && (
-          <div className="container">
-          <div className="user-name-holder">
-            <div className="username-wrapper">
-            <div className="user-name">
-              <label htmlFor="new-user">Your name :</label>
-              <input type="text" value={newUser} onChange={SignInNewUser} id="new-user" placeholder="Enter your Name" />
-            </div>
-            <button type="button" onClick={LoginByName}>Login</button>
-            </div>
-          </div>
-        </div>
-        )}
       </section>
 
         <footer className="container-fluid normal-footer">
               <div className="footer-first-part">
                 <div className="header-holder">
                   <div className="header-footer">
-                    <img height={32} src={logo} alt="E-learning" />
-                    <h3>E-learning</h3>
+                    <img height={32} src={logo} alt="UK-Elearn" />
+                    <h3>UK-Elearn</h3>
                   </div>
                 </div>
       
@@ -642,7 +606,7 @@ id="wave-footer-svg-2"
                   </div>
       
                   <div className="author">
-                    <p>Made with <span style={{ color: "red" }}>&hearts;</span> by E-learning</p>
+                    <p>Made with <span style={{ color: "red" }}>&hearts;</span> by UK-Elearn</p>
                   </div>
                 </div>
       
@@ -663,7 +627,7 @@ id="wave-footer-svg-2"
                       >
                         <path d="M27.281 4.65c-2.994-3-6.975-4.65-11.219-4.65-8.738 0-15.85 7.112-15.85 15.856 0 2.794 0.731 5.525 2.119 7.925l-2.25 8.219 8.406-2.206c2.319 1.262 4.925 1.931 7.575 1.931h0.006c0 0 0 0 0 0 8.738 0 15.856-7.113 15.856-15.856 0-4.238-1.65-8.219-4.644-11.219zM16.069 29.050v0c-2.369 0-4.688-0.637-6.713-1.837l-0.481-0.288-4.987 1.306 1.331-4.863-0.313-0.5c-1.325-2.094-2.019-4.519-2.019-7.012 0-7.269 5.912-13.181 13.188-13.181 3.519 0 6.831 1.375 9.319 3.862 2.488 2.494 3.856 5.8 3.856 9.325-0.006 7.275-5.919 13.188-13.181 13.188zM23.294 19.175c-0.394-0.2-2.344-1.156-2.706-1.288s-0.625-0.2-0.894 0.2c-0.262 0.394-1.025 1.288-1.256 1.556-0.231 0.262-0.462 0.3-0.856 0.1s-1.675-0.619-3.188-1.969c-1.175-1.050-1.975-2.35-2.206-2.744s-0.025-0.613 0.175-0.806c0.181-0.175 0.394-0.463 0.594-0.694s0.262-0.394 0.394-0.662c0.131-0.262 0.069-0.494-0.031-0.694s-0.894-2.15-1.219-2.944c-0.319-0.775-0.65-0.669-0.894-0.681-0.231-0.012-0.494-0.012-0.756-0.012s-0.694 0.1-1.056 0.494c-0.363 0.394-1.387 1.356-1.387 3.306s1.419 3.831 1.619 4.1c0.2 0.262 2.794 4.269 6.769 5.981 0.944 0.406 1.681 0.65 2.256 0.837 0.95 0.3 1.813 0.256 2.494 0.156 0.762-0.113 2.344-0.956 2.675-1.881s0.331-1.719 0.231-1.881c-0.094-0.175-0.356-0.275-0.756-0.475z"></path>
                       </svg>{" "}
-                      E-learning Crew
+                      UK-Elearn Crew
                     </a>
                   </div>
       
@@ -690,7 +654,7 @@ id="wave-footer-svg-2"
                 {isInstallable && (
                 <div className="app-container">
                   <button onClick={handleAppInstallPrompt} type="button">Download App</button>
-                  <img height={32} src={logo} alt="E-learning" />
+                  <img height={32} src={logo} alt="UK-Elearn" />
                 </div>
                 )}
               </div>
