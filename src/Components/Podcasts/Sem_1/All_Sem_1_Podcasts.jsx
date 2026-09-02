@@ -5,7 +5,7 @@ export function Sem_1_Podcasts () {
   // const MTU_INTRODUCTION_STEPS = "https://oousnjsxqzaocpqjfvkp.supabase.co/storage/v1/object/public/e-learning/Sem_1/MTU_INTRO.ogg";
   const MTU_INTRODUCTION_STEPS = "https://res.cloudinary.com/ddejfyqlw/video/upload/v1768761470/MTU_INTRO_awctie.ogg";
   const Phonetics_phonology = "https://res.cloudinary.com/ddejfyqlw/video/upload/v1768761521/Phonetics_phonology_fitjjs.aac";
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
 
   return (

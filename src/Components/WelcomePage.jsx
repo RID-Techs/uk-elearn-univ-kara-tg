@@ -21,7 +21,7 @@ export function Welcome_Page() {
   const [hasReadNote, setHasReadNote] = useState(false);
   const [dateOfCreation, setDateOfCreation]  = useState("2024");
 
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
 
   const Welcome = (message) => {

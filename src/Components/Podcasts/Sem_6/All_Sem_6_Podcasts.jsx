@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 export function Sem_6_Podcasts () {
   const academic_Writing = "https://res.cloudinary.com/ddejfyqlw/video/upload/v1768762090/Acdemic_writing_xubc1v.aac";
   const literary_theory = "https://res.cloudinary.com/ddejfyqlw/video/upload/v1768762102/Theory_wcfdrs.aac";
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
   return (
         <>

@@ -50,7 +50,7 @@ const otherPapersIcon = <svg
 export function DisplayPapers({ papers }) {
   const navigate = useNavigate();
   const isOnline = useNetworkStatus();
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
   const [searchParams,] = useSearchParams();
   const semester = searchParams.get("semester");

@@ -14,7 +14,7 @@ export function Sem_3_Podcasts () {
   const Yellow_SecondCharacters = "https://res.cloudinary.com/ddejfyqlw/video/upload/v1768761698/Yellow_Secondary_fr2p8v.ogg";
   const Yellow_Themes = "https://res.cloudinary.com/ddejfyqlw/video/upload/v1768761702/Yellow_Themes_gc34wk.ogg";
   const Yellow_French = "https://res.cloudinary.com/ddejfyqlw/video/upload/v1768761696/Yellow_French_iwdfgg.ogg";
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
   return (
         <>

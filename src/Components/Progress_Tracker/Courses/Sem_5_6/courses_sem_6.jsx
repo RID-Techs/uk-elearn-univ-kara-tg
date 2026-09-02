@@ -5,7 +5,7 @@ import { pdfFiles_sem_6, Reminders_sem_6 } from "../../../../All_Couses_Docs/Sem
 import { Link } from "react-router-dom";
 export const Courses_Sem_6 = () => {
 
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
 
     const [trackCourses_Sem_6, setTrackCourses_Sem_6] = useState(() => {

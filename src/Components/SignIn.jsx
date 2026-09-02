@@ -126,7 +126,7 @@ export function SignIn() {
   const completeLogin = (userId, userName, userFirstname) => {
     // This function handles the final authentication state
     setLoading("Sign in");
-    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("isSignedIn", "true");
     Welcome("You are an E-member now !");
     localStorage.setItem('currentUser', userId);
     localStorage.setItem('userName', userName);

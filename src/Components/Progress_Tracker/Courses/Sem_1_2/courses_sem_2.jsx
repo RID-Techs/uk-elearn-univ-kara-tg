@@ -5,7 +5,7 @@ import { CircleProgress } from "../../circle_tracker";
 import { Link } from "react-router-dom";
 export const Courses_Sem_2 = () => {
 
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
 
     const [trackCourses_Sem_2, setTrackCourses_Sem_2] = useState(() => {

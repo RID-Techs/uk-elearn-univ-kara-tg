@@ -23,7 +23,7 @@ import { Link, NavLink } from "react-router-dom";
 export function Test() {
   const [testSem, setTestSem] = useState("");
 
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
 
   const handleTestSem = (e) => {

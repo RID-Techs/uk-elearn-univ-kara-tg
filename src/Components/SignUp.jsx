@@ -90,8 +90,8 @@ export function SignUp() {
   // Generate a random 4-digit number between 1000 and 9999
   const randomNumbers = Math.floor(1000 + Math.random() * 9000);
 
-  // Set the identifier (e.g., MARC8645)
-  setIdentifiant(`${baseLetters}${randomNumbers}`);
+  // Set the identifier (e.g., MARC-8645)
+  setIdentifiant(`${baseLetters}-${randomNumbers}`);
 };
 
   const handleSignUp = async (e) => {

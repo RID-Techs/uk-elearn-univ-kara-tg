@@ -17,7 +17,7 @@ export function Sem_5_Podcasts () {
   const BluestRacismSexism = "https://res.cloudinary.com/ddejfyqlw/video/upload/v1768761838/Bluest_Racism_sexism_g0pncq.ogg";
   const CultureInHibiscus = "https://res.cloudinary.com/ddejfyqlw/video/upload/v1768761839/Culture_in_Hibiscus_qs4iqp.ogg";
   const IjemMessiah = "https://res.cloudinary.com/ddejfyqlw/video/upload/v1768761844/Ijem_Messiah_ezpbyq.ogg";
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
   return (
         <>

@@ -93,7 +93,7 @@ export function Home() {
   const [checked_sem_4, setChecked_Sem_4] = useState(false);
   const [checked_sem_6, setChecked_Sem_6] = useState(false);
 
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
 
   useEffect(() => {

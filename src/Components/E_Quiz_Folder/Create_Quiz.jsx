@@ -12,7 +12,7 @@ export function Create_Quiz () {
 
     const [username, setUsername] = useState("");
 
-    const getMemberStatus = localStorage.getItem("isLoggedIn");
+    const getMemberStatus = localStorage.getItem("isSignedIn");
     const isMember = getMemberStatus === "true";
 
     const notYetRegistered = useRef("Not Registered");

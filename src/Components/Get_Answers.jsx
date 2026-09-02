@@ -22,7 +22,7 @@ export function Get_Answers() {
   const navigate = useNavigate();
   const isOnline = useNetworkStatus();
   const [userFirstname] = useState(() => localStorage.getItem('userFirstname') || "Guest Learner");
-  const getMemberStatus = localStorage.getItem("isLoggedIn");
+  const getMemberStatus = localStorage.getItem("isSignedIn");
   const isMember = getMemberStatus === "true";
 
   const [checked_sem_1, setChecked_Sem_1] = useState(false);
