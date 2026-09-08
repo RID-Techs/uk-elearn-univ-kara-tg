@@ -115,6 +115,7 @@ export function SignIn() {
           } else {
              // Mismatch: Attempt to login from another device!
              FailedToSignIn("Access denied: This account is already bound to another device (phone or computer).");
+             setLoading("Sign in");
           }
         }
     } catch (error) {
