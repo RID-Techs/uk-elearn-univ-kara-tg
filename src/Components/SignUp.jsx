@@ -9,9 +9,10 @@ import E_member from "../assets/E_picture.webp";
 import { toast, Zoom } from "react-toastify";
 import { useState, useEffect} from "react";
 export function SignUp() {
-  const [name, setName] = useState('');
-  const [firstname, setFirstname] = useState('');
-  const [identifiant, setIdentifiant] = useState('');
+  const [searchParams] = useState(() => new URLSearchParams(window.location.search));
+  const [name, setName] = useState(() => (searchParams.get("name") || '').trim().toUpperCase());
+  const [firstname, setFirstname] = useState(() => (searchParams.get("firstname") || '').trim());
+  const [identifiant, setIdentifiant] = useState(() => (searchParams.get("userpasskey") || '').trim());
   const [loading, setLoading] = useState("Sign up");
   const [dateOfCreation, setDateOfCreation] = useState("2024");
 
