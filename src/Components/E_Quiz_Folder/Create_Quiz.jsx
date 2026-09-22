@@ -19,7 +19,7 @@ export function Create_Quiz () {
     const [RegisterBefore, setRegisterBefore] = useState(false);
 
     useEffect(() => {
-      const user = localStorage.getItem("User") ?? "E-member";
+      const user = localStorage.getItem("userFirstname") ?? "E-member";
       if(user) {
         setUsername(user);
       }

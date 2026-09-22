@@ -73,7 +73,7 @@ export function AddExamPapers() {
   const [showPaperSidePart, setShowPaperSidePart] = useState(false);
   const [username, setUsername] = useState("");
   useEffect(() => {
-    const user = localStorage.getItem("User") ?? "E-member";
+    const user = localStorage.getItem("userFirstname") ?? "Guest Learner";
     if (user) {
       setUsername(user);
     }

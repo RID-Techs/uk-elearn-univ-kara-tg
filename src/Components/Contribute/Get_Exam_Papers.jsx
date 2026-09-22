@@ -106,7 +106,7 @@ export function GetALlExamPapers() {
 
   const [username, setUsername] = useState("");
       useEffect(() => {
-        const user = localStorage.getItem("User") ?? "E-member";
+        const user = localStorage.getItem("userFirstname") ?? "Guest Learner";
         if(user) {
           setUsername(user);
         }
