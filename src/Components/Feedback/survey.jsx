@@ -380,8 +380,8 @@ export const Survey = () => {
             }
     <main>
       <div className="survey-wrapper">
-      <h1><span className="highlight">♨</span> Hey {username}, <br /> E-learning is improving for you.</h1>
-      {showThanks === false && <p id="survey-introductory-msg">Well, let{"'"}s go through a short and quick survey regarding E-learning.</p> }
+      <h1><span className="highlight">♨</span> Hey {username}, <br /> UK-Elearn is improving for you.</h1>
+      {showThanks === false && <p id="survey-introductory-msg">Well, let{"'"}s go through a short and quick survey regarding UK-Elearn.</p> }
       <div className="survey-container">
         <form onSubmit={handleSurveyQuestion_16}>
 
@@ -389,7 +389,7 @@ export const Survey = () => {
 
             {surveyQuestion_1 && <div className="survey-group">
               <div className="survey-header">
-                <h4><span className="highlight">⚶</span> Where did you first hear about E-learning ?</h4>
+                <h4><span className="highlight">⚶</span> Where did you first hear about UK-Elearn ?</h4>
               </div>
               <div className="survey-body">
                 <div className="survey-options">
@@ -404,7 +404,7 @@ export const Survey = () => {
             </div>}
             {surveyQuestion_2 && <div className="survey-group">
               <div className="survey-header">
-                <h4><span className="highlight">⚶</span> Has E-learning actually helped you ?</h4>
+                <h4><span className="highlight">⚶</span> Has UK-Elearn actually helped you ?</h4>
               </div>
               <div className="survey-body">
                 <div className="survey-options">
@@ -419,7 +419,7 @@ export const Survey = () => {
             </div>}
             {surveyQuestion_3 && <div className="survey-group">
               <div className="survey-header">
-                <h4><span className="highlight">⚶</span> How has it helped you ? What has changed since the day you signed up for E-learning ?</h4>
+                <h4><span className="highlight">⚶</span> How has it helped you ? What has changed since the day you signed up for UK-Elearn ?</h4>
               </div>
               <div className="survey-body">
                 <div className="survey-area">
@@ -433,7 +433,7 @@ export const Survey = () => {
             </div>}
             {surveyQuestion_4 && <div className="survey-group">
               <div className="survey-header">
-                <h4><span className="highlight">⚶</span> Do you think it was worth registering for E-learning ?</h4>
+                <h4><span className="highlight">⚶</span> Do you think it was worth registering for UK-Elearn ?</h4>
               </div>
               <div className="survey-body">
                 <div className="survey-options">
@@ -478,7 +478,7 @@ export const Survey = () => {
             </div>}
             {surveyQuestion_7 && <div className="survey-group">
               <div className="survey-header">
-                <h4><span className="highlight">⚶</span> How would you rate your experience interacting with the E-learning website ?</h4>
+                <h4><span className="highlight">⚶</span> How would you rate your experience interacting with the UK-Elearn website ?</h4>
               </div>
               <div className="survey-body">
                 <div className="survey-options">
@@ -493,7 +493,7 @@ export const Survey = () => {
             </div>}
             {surveyQuestion_8 && <div className="survey-group">
               <div className="survey-header">
-                <h4><span className="highlight">⚶</span> Do you find the in-person sessions of the E-learning program beneficial ?</h4>
+                <h4><span className="highlight">⚶</span> Do you find the in-person sessions of the UK-Elearn program beneficial ?</h4>
               </div>
               <div className="survey-body">
                 <div className="survey-options">
@@ -553,7 +553,7 @@ export const Survey = () => {
             </div>}
             {surveyQuestion_12 && <div className="survey-group">
               <div className="survey-header">
-                <h4><span className="highlight">⚶</span> Would you recommend E-learning to your friends ?</h4>
+                <h4><span className="highlight">⚶</span> Would you recommend UK-Elearn to your friends ?</h4>
               </div>
               <div className="survey-body">
                 <div className="survey-options">
@@ -568,7 +568,7 @@ export const Survey = () => {
             </div>}
             {surveyQuestion_13 && <div className="survey-group">
               <div className="survey-header">
-                <h4><span className="highlight">⚶</span> Do you think the university should incorporate E-learning into their educational programs ?</h4>
+                <h4><span className="highlight">⚶</span> Do you think the university should incorporate UK-Elearn into their educational programs ?</h4>
               </div>
               <div className="survey-body">
                 <div className="survey-options">
@@ -583,7 +583,7 @@ export const Survey = () => {
             </div>}
             {surveyQuestion_14 && <div className="survey-group">
               <div className="survey-header">
-                <h4><span className="highlight">⚶</span> What is your overall impression of E-learning ?</h4>
+                <h4><span className="highlight">⚶</span> What is your overall impression of UK-Elearn ?</h4>
               </div>
               <div className="survey-body">
                 <div className="survey-area">
