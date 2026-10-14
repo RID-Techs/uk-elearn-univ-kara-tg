@@ -1553,7 +1553,7 @@ async function openCachedPDF(url) {
             </div>
 
             <div className="average-content">
-              <a href="https://ma-moyenne-univ-tg.onrender.com/" target="_blank">
+              <a href="https://ma-moyenne-univ-tg.onrender.com/?utm_source=uk_elearn_univ_tg&utm_medium=website&utm_campaign=uk_elearn_univ" target="_blank">
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
