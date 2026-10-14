@@ -2754,7 +2754,7 @@ export function Get_Answers() {
             </div>
 
             <div className="average-content">
-              <a href="https://ma-moyenne-univ-tg.onrender.com/" target="_blank">
+              <a href="https://ma-moyenne-univ-tg.onrender.com/?utm_source=uk_elearn_univ_tg&utm_medium=website&utm_campaign=uk_elearn_univ" target="_blank">
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -2768,6 +2768,13 @@ export function Get_Answers() {
                 Ma-moyenne
               </a>
             </div>
+            <div className="ebrary-content">
+                    <a href="https://e-brary-univ-tg.onrender.com/?utm_source=uk_elearn_univ_tg&utm_medium=website&utm_campaign=uk_elearn_univ" target="_blank">
+                      {" "}
+                      <img height={24} width={24} src="/e-brary.png" alt="E-Brary" />{" "}
+                      E-Brary
+                    </a>
+                  </div>
           </div>
 
           <div className="Phone-number">
