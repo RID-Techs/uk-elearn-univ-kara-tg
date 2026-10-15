@@ -159,10 +159,6 @@ body{
   fill: currentColor;
   height: 22px;
 }
-.whatsapp-content-2, .average-content, .ebrary-content{
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
 .whatsapp-content-2 a {
   font-weight: 500;
   text-decoration: none;
@@ -208,29 +204,6 @@ body{
 #guide-msg-h3 {
   line-height: 2rem;
 }
-/* .whatsapp-content a {
-  font-weight: 600;
-  text-decoration: none;
-  color: #fff;
-  background-color: green;
-  padding: 0.3em;
-  border: 2px solid aliceblue;
-  border-radius: 5px;
-  animation: nice 1s linear alternate infinite;
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    color: green;
-    background-color: aliceblue;
-  }
-}
-@keyframes nice {
-  0% {
-    box-shadow: 2px 0px 3px red, 0px 2px 3px rgb(70, 0, 128), -2px 0px 3px blue, 0px -2px 3px rgb(248, 224, 4);
-  }
-  100% {
-    box-shadow: 2px 0px 3px rgb(70, 0, 128), 0px 2px 3px yellow, -2px 0px 3px red, 0px -2px 3px rgb(51, 255, 0);
-  }
-} */
  .intro {
   display: flex;
   flex-direction: column;
@@ -271,7 +244,6 @@ body{
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.5em;
-
   h1, h3 {
     font-family: var(--styled-font), 'Times New Roman', Times, serif;
   }
@@ -327,12 +299,6 @@ header{
   width: 100%;
   bottom: 0;
   z-index: -1;
-  /* 2. Clip Path: This cuts the element into a triangle.
-        Coordinates: (x y)
-        0% 100%   = Bottom Left
-        100% 0%   = Top Right (This creates the "growing" slope)
-        100% 100% = Bottom Right (The anchor) 
-  */
   clip-path: polygon(0% 100%, 100% 40%, 100% 100%);
   background-image: radial-gradient(circle at bottom right, #0A2239, #105ee5aa, #FFCF80, transparent);
   border-bottom-left-radius: 10px;
@@ -1520,6 +1486,7 @@ hr.divider{
   }
 }
 .app-container {
+  margin-top: 3rem;
   display: flex;
   justify-items: center;
   border-right: 2px solid #105EE5;
@@ -1710,8 +1677,8 @@ footer{
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0.3em;
+  justify-content: space-evenly;
+  padding: 1em;
   margin-top: 2em;
   background-color: #f8fbff11;
   backdrop-filter: blur(2px);
@@ -1722,32 +1689,34 @@ footer{
   display: inline-flex;
   gap: 0.5em;
 }
-.footer-second-part{
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1em;
+.rights {
+  margin-top: 1rem;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-
 .privacy {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  padding: 0.5em;
+  margin-left: 0.5rem
+}
+.social-links-wrapper, .phone-contact-wrapper {
+  margin-top: 1em;
+  margin-left: 0.5rem;
+  p {
+   font-weight: bold;
+ }
 }
 .social-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
-  padding: 0.5em;
+  gap: 1rem;
 }
 
-.Phone-number {
-  display: flex;
-  padding: 0.5em;
-  & p {
-    margin-bottom: 0.5em;
-  }
+.phone-contact-wrapper{
+  margin-top: 1rem;
+}
+.Phone-number a{
+    text-decoration: none;
+    color: currentColor;
 }
 
 .not-available{
@@ -1936,15 +1905,15 @@ footer{
     width: 100%;
   }
 
-  .footer-second-part {
-    margin-top: 1em;
-    padding: 0.5em;
+  footer {
+    align-items: start;
+    flex-direction: column;
   }
-  .privacy {
-    gap: 1em;
+    .footer-third-part {
+    margin-top: 1rem;
   }
-  .footer-second-part {
-    gap: 0.1em;
+  .app-container {
+    margin-top: 1rem;
   }
 }
 /* ============================ */
@@ -2037,10 +2006,6 @@ footer{
     padding: 1em;
   }
 
-  .average-content {
-    margin-left: 0.7em;
-  }
-
   .welcome {
     flex-direction: column;
     margin-top: 20em;
@@ -2051,17 +2016,13 @@ footer{
    align-items: center;
    margin-top: 12em;
 }
-
   .welcome-footer, .normal-footer {
     padding-top: 1em;
   }
 
-  .privacy {
-    gap: 0em;
-  }
-
   .social-links {
-    gap: 0.5em;
+   flex-direction: column;
+   gap: 2rem;
   }
 
   .Info-holder .container {
@@ -2084,9 +2045,6 @@ footer{
   .semester-choice ul{
     gap: 2em;
     margin-left: -1em;
-  }
-  .footer-first-part{
-    gap: 0em;
   }
   .login-holder{
     flex-direction: column-reverse;
@@ -2114,11 +2072,6 @@ footer{
 }
 }
 
-@media screen and (max-width: 360px) {
-  .social-links {
-    gap: 1em;
-  }
-}
 @media screen and (max-width: 320px) {
   .e-member-picture-holder {
     display: flex;
