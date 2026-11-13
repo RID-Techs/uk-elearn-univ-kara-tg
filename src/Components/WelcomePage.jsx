@@ -219,7 +219,6 @@ const ClosingEcoBanner = () => {
 
   return (
     <>
-        <div className="page-wrapper">
         {showNote && (
             <div className="conatiner-fluid Info-holder">
             <div className="container">
@@ -611,8 +610,6 @@ id="wave-footer-svg-2"
                 </div>
                 )}
         </footer>
-
-    </div>
     </>
   );
 }

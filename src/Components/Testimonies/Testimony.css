@@ -59,9 +59,8 @@
 }
 
 .wave-holder{
-  margin-bottom: -4em;
+  isolation: isolate;
   position: relative;
-  z-index: -1;
 }
 .wave-holder::before{
   content: "✼";
@@ -95,6 +94,7 @@
   width: 100%;       /* Ensures it stretches across the screen */
   height: 70px;      /* 👈 CHANGE THIS VALUE to make it as thin as you want */
   overflow: hidden;
+    z-index: -1;
 }
 
 .see-our-students{
@@ -127,8 +127,9 @@
   }
 
 .wave-footer{
-  margin-top: -4em;
+  margin-top: -2em;
   position: relative;
+  isolation: isolate;
 }
 #wave-footer-svg-1, #wave-footer-svg-2 {
   overflow: hidden;

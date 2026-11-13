@@ -217,7 +217,6 @@ export function Podcast () {
 
   return  (
     <>
-      <div className="page-wrapper">
             <div className="container-fluid header-wraper">
         <div className="header-holder">
           <header>
@@ -381,8 +380,6 @@ export function Podcast () {
                       </div>
                     </div>
               </footer>
-
-    </div>
     </>
   )
 }

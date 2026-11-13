@@ -118,7 +118,6 @@ export const User_Progress = () => {
   }, []);
   return (
     <>
-      <div className="page-wrapper">
     <div className="container-fluid header-wraper-home" style={{zIndex: 1000}}>
                     <div className="header-holder">
                       <header>
@@ -324,7 +323,6 @@ export const User_Progress = () => {
                       </div>
                     </div>
               </footer>
-    </div>
     </>
   )
 }

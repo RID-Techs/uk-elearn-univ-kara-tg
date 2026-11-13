@@ -5,7 +5,6 @@ import stars from "../assets/stars.png";
 import star from "../assets/stars_2.png";
 import username from "../assets/username.png";
 import password from "../assets/password.png";
-import E_member from "../assets/E_picture.webp";
 import { toast, Zoom } from "react-toastify";
 import { useState, useEffect} from "react";
 export function SignUp() {
@@ -142,7 +141,6 @@ export function SignUp() {
 
   return (
     <>
-      <div className="page-wrapper">
       <div className="container-fluid header-wraper-home">
         <div className="header-holder">
           <header>
@@ -240,7 +238,7 @@ export function SignUp() {
         </div>
 
         <div className="e-member-picture-holder">
-          <img height={350} src={E_member} alt="learning" />
+          <img height={350} src="/E_picture.webp" alt="learning" />
         </div>
       </div>
       </section>
@@ -322,8 +320,6 @@ export function SignUp() {
                                 </div>
                               </div>
                         </footer>
-
-    </div>
     </>
   );
 }

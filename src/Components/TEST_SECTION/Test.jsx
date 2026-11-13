@@ -227,8 +227,6 @@ export function Test() {
 
   return (
     <>
-      <div className="page-wrapper">
-
          <div className="modal" id="logInMember" tabIndex="-1">
           <div className="modal-dialog">
             <div className="modal-content">
@@ -647,7 +645,7 @@ export function Test() {
                     </div>
               </footer>
 
-    </div>
+    
     </>
   );
 }

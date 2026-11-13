@@ -13,6 +13,7 @@
 
 #eye-progress{
   position: relative;
+  isolation: isolate;
 }
 #eye-progress::before {
   position: absolute;
@@ -27,6 +28,7 @@
 
 #embody-progress{
   position: relative;
+  isolation: isolate;
 }
 #embody-progress::before {
   position: absolute;
@@ -41,6 +43,7 @@
 
 #enjoy-progress{
   position: relative;
+  isolation: isolate;
 }
 
 #enjoy-progress::before {
@@ -62,6 +65,7 @@
 
 #learning-progress{
   position: relative;
+  isolation: isolate;
 }
 
 #learning-progress::before {

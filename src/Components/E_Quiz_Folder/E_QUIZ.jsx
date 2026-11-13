@@ -126,7 +126,6 @@ export function E_Quiz () {
           }, []);
   return (
     <>
-    <div className="page-wrapper">
      <div className="container-fluid header-wraper-home" style={{zIndex: 1000}}>
                         <div className="header-holder">
                           <header>
@@ -321,7 +320,7 @@ export function E_Quiz () {
                           </div>
                         </div>
                   </footer>
-    </div>
+    
     
     </>
   )

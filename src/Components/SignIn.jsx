@@ -4,7 +4,6 @@ import logo from "../assets/learns.png";
 import stars from "../assets/stars.png";
 import star from "../assets/stars_2.png";
 import username from "../assets/username.png";
-import E_member from "../assets/E_picture.webp";
 import { toast, Zoom } from "react-toastify";
 import { useState, useEffect} from "react";
 
@@ -139,7 +138,6 @@ export function SignIn() {
 
   return (
     <>
-      <div className="page-wrapper">
       <div className="container-fluid header-wraper-home">
         <div className="header-holder">
           <header>
@@ -188,7 +186,7 @@ export function SignIn() {
         </div>
 
         <div className="e-member-picture-holder">
-          <img height={350} src={E_member} alt="learning" />
+          <img height={350} src="/E_picture.webp" alt="learning" />
         </div>
       </div>
       </section>
@@ -270,8 +268,6 @@ export function SignIn() {
                                 </div>
                               </div>
                         </footer>
-
-    </div>
     </>
   );
 }

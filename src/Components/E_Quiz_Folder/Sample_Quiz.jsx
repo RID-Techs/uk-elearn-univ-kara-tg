@@ -331,7 +331,6 @@ const [dateOfCreation, setDateOfCreation] = useState("2024");
 
   return (
     <>
-      <div className="page-wrapper">
         <div className="quiz-generated-msg-wrapper">
           <div className="quiz-generated-msg-holder">
             <p className="quiz-generated-msg">Généré par <a href="https://UK-Elearn-learning-space-front.onrender.com/">UK-Elearn</a> </p>
@@ -586,7 +585,7 @@ const [dateOfCreation, setDateOfCreation] = useState("2024");
                         </div>
                   </footer>
 
-      </div>
+      
     </>
   )
 }
