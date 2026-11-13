@@ -9,9 +9,6 @@ import stars from "../assets/stars.png";
 import feedback from "../assets/feedback.png";
 import reward from "../assets/reward.png";
 import star from "../assets/stars_2.png";
-// import E_crew from "/E_crew.png";
-// import password from "/password.png";
-import E_member from "../assets/E_picture.webp";
 import { toast, Zoom } from "react-toastify";
 import { Testimony } from "./Testimonies/Testimony";
 
@@ -436,7 +433,7 @@ const ClosingEcoBanner = () => {
 </div>)}
 
 <div className="welcome-picture">
-    <img height={350} src={E_member} alt="learning" />
+    <img height={350} src="/E_picture.webp" alt="learning" />
 </div>
 
 </div>
