@@ -412,7 +412,7 @@ const ClosingEcoBanner = () => {
             {" "}
             <span id="open-btn"><em>university career</em></span>
           </span>{" "}
-          with UK-Elearn{" "}
+          at <em>“Université de Kara“</em> {" "}
           <img height={32} src={star} alt="star" />{" "}
         </h3>
       </div>

@@ -21,9 +21,9 @@ export default defineConfig({
       },
 
       manifest: {
-        name: "E-learning Université de Kara",
+        name: "UK-Elearn",
         short_name: "UK-Elearn",
-        description: "UK-Elearn is a web-based learning platform dedicated to providing high-quality education online to students of 'Université de Kara",
+        description: "UK-Elearn is a web-based learning platform dedicated to providing high-quality education online to students of 'Université de Kara'. It offers a wide range of courses and resources to enhance the learning experience.",
         start_url: "/?source=pwa",
         display: "standalone",
         background_color: "#f7fffe",
@@ -60,6 +60,12 @@ export default defineConfig({
             type: "image/png",
             purpose: "any",
           },
+          {
+            src: "/learns_2.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
         ],
       },
       workbox: {
@@ -69,7 +75,7 @@ export default defineConfig({
         // skipWaiting: true,
         clientsClaim: true,
         navigateFallback: "/index.html",
-        navigateFallbackAllowlist: [/^(?!\/__).*/],
+        navigateFallbackDenylist: [/^\/__/, /^\/sitemap\.xml$/, /^\/robots\.txt$/],
 
         // 3. Keep this high (6MB) to ensure larger images/PDFs aren't skipped
         maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,

@@ -485,6 +485,7 @@ p{
 }
 #click-open-btn {
   position: relative;
+  isolation: isolate;
 }
 #open-btn::before{
   position: absolute;
@@ -1933,6 +1934,9 @@ footer{
   .banner-wrapper {
   width: calc(100% - 10%);
 }
+  .guide-msg{
+    margin-top: 12em;
+  }
 }
 
 @media screen and (min-width: 477px) and (max-width: 880px){
@@ -1943,7 +1947,7 @@ footer{
 
 @media screen and (min-width: 477px) and (max-width: 693px){
   .guide-msg{
-    margin-top: 13em;
+    margin-top: 12em;
   }
 }
 
