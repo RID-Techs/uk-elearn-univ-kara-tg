@@ -49,7 +49,7 @@ export default defineConfig({
             purpose: "any",
           },
           {
-            src: "/learns_1.png",
+            src: "/learns_192.png",
             sizes: "192x192",
             type: "image/png",
             purpose: "any",

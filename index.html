@@ -34,7 +34,7 @@
   <meta property="og:url" content="https://uk-elearn-univ-kara-tg.onrender.com/" />
   <meta property="og:title" content="UK-Elearn | High-Level Web-Based Learning Platform" />
   <meta property="og:description" content="UK-Elearn is a web-based learning platform dedicated to providing high-quality education online to students of 'Université de Kara'." />
-  <meta property="og:image" content="https://uk-elearn-univ-kara-tg.onrender.com/elearning-og-pic-v5.jpg" />
+  <meta property="og:image" content="https://uk-elearn-univ-kara-tg.onrender.com/elearning-og-pic-v6.jpg" />
   <!-- specifically for WhatsApp -->
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -45,7 +45,7 @@
 <meta property="twitter:url" content="https://uk-elearn-univ-kara-tg.onrender.com/">
 <meta name="twitter:title" content="UK-Elearn | High-Level Web-Based Learning Platform">
 <meta name="twitter:description" content="UK-Elearn is a web-based learning platform dedicated to providing high-quality education online to students of 'Université de Kara'.">
-<meta name="twitter:image" content="https://uk-elearn-univ-kara-tg.onrender.com/elearning-og-pic-v5.jpg">
+<meta name="twitter:image" content="https://uk-elearn-univ-kara-tg.onrender.com/elearning-og-pic-v6.jpg">
 <!-- Twitter Meta Tags -->
     <meta name="keywords" content="UK-Elearn, web-based learning, online courses, education, learning platform">
     <meta name="theme-color" content="#f7fffe">
@@ -55,11 +55,11 @@
     <meta name="apple-mobile-web-app-title" content="UK-Elearn | High-Level Web-Based Learning Platform">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link rel="apple-touch-icon" href="/learns_1.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/learns_180.png">
     <link rel="preload" as="image" href="/E_picture.webp" fetchpriority="high" />
     <link rel="preconnect" href="https://res.cloudinary.com" />
 
-       <!-- ===== Structured data ===== -->
+ <!-- ===== Structured data ===== -->
  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -73,13 +73,16 @@
       "publisher": { "@id": "https://uk-elearn-univ-kara-tg.onrender.com/#organization" }
     },
     {
-      "@type": "EducationalOrganization",
+      "@type": ["EducationalOrganization", "Organization"],
       "@id": "https://uk-elearn-univ-kara-tg.onrender.com/#organization",
       "name": "UK-Elearn",
       "description": "UK-Elearn is a web-based learning platform for students of Université de Kara.",
       "url": "https://uk-elearn-univ-kara-tg.onrender.com/",
-      "logo": "https://uk-elearn-univ-kara-tg.onrender.com/learns.png",
-      "image": "https://uk-elearn-univ-kara-tg.onrender.com/elearning-og-pic-v5.jpg",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://uk-elearn-univ-kara-tg.onrender.com/learns.png"
+      },
+      "image": "https://uk-elearn-univ-kara-tg.onrender.com/elearning-og-pic-v6.jpg",
       "telephone": "+22870454088",
       "email": "bossbossa954@gmail.com",
       "contactPoint": [
@@ -102,9 +105,7 @@
         "latitude": 9.53176736676455,
         "longitude": 1.207753410708115
       },
-      "hasMap": "https://www.openstreetmap.org/?mlat=9.53176736676455&mlon=1.207753410708115#map=17/9.53176736676455/1.207753410708115",
-      "areaServed": { "@type": "City", "name": "Kara" },
-      "knowsLanguage": ["en", "fr"],
+      "areaServed": "Kara, Togo",
       "sameAs": [
         "https://chat.whatsapp.com/KEHsubuy8gKBogstCaBPzq",
         "https://whatsapp.com/channel/0029Vb8ypt1CnA7jlYtXph44"

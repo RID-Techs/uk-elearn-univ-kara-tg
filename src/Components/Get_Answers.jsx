@@ -12,7 +12,7 @@ import warning from "../assets/warning.png";
 import feedback_pic from "../assets/feedback.png";
 
 // Image Faq from https://www.freepik.com/
-import Faq from "../assets/Faq.png";
+import Faq from "../assets/Faq.webp";
 import { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { isItemInCache } from "../Network-Status/itemCache";
